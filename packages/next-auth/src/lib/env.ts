@@ -8,6 +8,7 @@ export function reqWithEnvURL(req: NextRequest): NextRequest {
   if (!url) return req
   const { origin: envOrigin } = new URL(url)
   const { href, origin } = req.nextUrl
+  // @ts-ignore
   return new NextRequest.default(href.replace(origin, envOrigin), req)
 }
 
